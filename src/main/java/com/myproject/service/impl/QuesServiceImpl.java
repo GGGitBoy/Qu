@@ -32,6 +32,7 @@ public class QuesServiceImpl implements QuesService {
 	@Override
 	public List<ques> findQuess(String questionid) {
 		quesExample example = new quesExample();
+		example.setOrderByClause("`site` ASC");
 		Criteria criteria = example.createCriteria();
 		criteria.andQuestionidEqualTo(questionid);
 		return quesMapper.selectByExample(example);

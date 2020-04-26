@@ -8,11 +8,14 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.text.DecimalFormat;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.myproject.dao.questionnaireMapper;
 import com.myproject.pojo.user;
 import com.myproject.service.UserService;
 
@@ -21,6 +24,9 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 public class CreatUUID {
+	
+	@Autowired
+	private questionnaireMapper questionnaireMapper;
 
 	public static String uuid() {
 		String uuid = UUID.randomUUID().toString().replaceAll("-", "");
@@ -84,18 +90,6 @@ public class CreatUUID {
          return df.format(arg);
 	
 	}
-//	    	//      =================================================================================        
-//	    	         NumberFormat num = NumberFormat.getPercentInstance(); 
-//	    	         num.setMaximumIntegerDigits(3); 
-//	    	         num.setMaximumFractionDigits(2); 
-//	    	         double csdn = 0.55555555555555555; 
-//	    	         System.out.println(num.format(csdn));//good
-//	    	 //      =================================================================================        
-//	    	         double result=1;
-//	    	         int temp = (int)(result * 1000);
-//	    	         result = (double)temp / 10;
-//	    	         System.out.println(result + "%");//100%  变成了  100.0%
-//	    	    }
-        
-	    
+
+			 
 }

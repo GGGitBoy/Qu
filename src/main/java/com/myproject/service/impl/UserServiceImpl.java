@@ -1,7 +1,12 @@
 package com.myproject.service.impl;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import com.myproject.entiy.Result;
+import com.myproject.utils.AlSmsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +19,7 @@ import com.myproject.pojo.userExample;
 import com.myproject.pojo.userExample.Criteria;
 import com.myproject.service.UserService;
 import com.myproject.utils.CreatUUID;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 服务实现层
@@ -22,7 +28,6 @@ import com.myproject.utils.CreatUUID;
  */
 @Service
 public class UserServiceImpl implements UserService {
-
 	@Autowired
 	private userMapper userMapper;
 	
@@ -149,18 +154,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 		@Override
-		public void addExcel(String name, String password) {
-			user user = new user();
+		public void addExcel(user user) {
 			//密码加密
 			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-			String password2 = bCryptPasswordEncoder.encode(password);
-			user.setPassword(password2);
-			user.setName(name);	
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			user.setUserid(CreatUUID.uuid());	
-			System.out.println(name);
-			System.out.println(password);
 			userMapper.insert(user);		
 			
 		}
-	
+
+    @Override
+    public user findByUserName(String username) {
+        return userMapper.findByUserName(username);
+    }
+
+
 }

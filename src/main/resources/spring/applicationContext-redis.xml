@@ -23,7 +23,7 @@
 	    <!--端口号-->
 	    <property name="port" value="6379"/>
 	    <!--如果有密码则需要配置密码-->
-	    <!--<property name="password" value="password"/>-->
+        <property name="password" value="123456"/>
 	    <!--连接池配置-->
 	    <property name="poolConfig" ref="poolConfig"/>
 	</bean>

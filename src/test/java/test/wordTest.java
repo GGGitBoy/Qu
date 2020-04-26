@@ -3,6 +3,7 @@ package test;
 import java.io.IOException;
 import java.io.InputStream;
 
+import com.myproject.controller.QuestionnaireController;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -32,10 +33,15 @@ public class wordTest {
 //        wd.testWrite();
 //    }
 	
-	@Test
-	public void testExcel() throws Exception {
-		UploadController.getDataFromExcel("D:\\test.xlsx");
-	}
+//	@Test
+//	public void testExcel() throws Exception {
+//		UploadController.getDataFromExcel("D:\\test.xlsx");
+//	}
 
+    @Test
+    public void test() {
+        QuestionnaireController questionnaireController = new QuestionnaireController();
+        questionnaireController.findComplete("1246494ff265415998a6320117b3b810");
+    }
 
 }

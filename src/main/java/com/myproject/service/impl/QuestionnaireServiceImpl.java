@@ -32,7 +32,6 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 	 */
 	@Override
 	public List<questionnaire> findAll(String status) {
-		
 		List<questionnaire> questionnairelist;
 		if(status == null ) {
 			questionnairelist = questionnaireMapper.selectByExample(null);
@@ -104,7 +103,7 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 		Criteria criteria = example.createCriteria();
 		
 		if(questionnaire!=null){	
-			if(questionnaire.getStatus()!=null){
+			if(questionnaire.getStatus()!=null && questionnaire.getStatus().length()>0){
 				criteria.andStatusEqualTo(questionnaire.getStatus());
 			}
 			if(questionnaire.getQuestionnaireid()!=null && questionnaire.getQuestionnaireid().length()>0){
@@ -154,5 +153,14 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 			return questionnairelist;
 		}
 
-	
+	@Override
+	public questionnaire findByQuestionnaireNumber(String s) {
+		questionnaireExample example = new questionnaireExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andQuestionnairenumberEqualTo(s);
+		List<questionnaire> questionnaireList = questionnaireMapper.selectByExample(example);
+		return questionnaireList.get(0);
+	}
+
+
 }

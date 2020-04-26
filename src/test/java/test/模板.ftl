@@ -55,6 +55,7 @@
 							<w:t>${title}</w:t>
 						</w:r>
 					</w:p>
+					<#list questions as question>
 					<w:p w14:paraId="543374A9" w14:textId="63D23913" w:rsidR="002A2F83" w:rsidRDefault="00992EAE">
 						<w:pPr>
 							<w:tabs>
@@ -98,7 +99,7 @@
 								<w:szCs w:val="24"/>
 								<w:lang w:eastAsia="zh-CN"/>
 							</w:rPr>
-							<w:t>${degest}</w:t>
+							<w:t>${question.degest}</w:t>
 						</w:r>
 					</w:p>
 					<w:tbl>
@@ -612,7 +613,7 @@
 								</w:p>
 							</w:tc>
 						</w:tr>
-						<#list rowlist as row>
+						<#list question.rowlist as row>
 						<w:tr w:rsidR="002A2F83" w14:paraId="12B34FF7" w14:textId="77777777">
 							<w:trPr>
 								<w:trHeight w:val="454"/>
@@ -648,7 +649,7 @@
 										</w:r>
 								</w:p>
 							</w:tc>
-							<#list row.optlist as opt>
+							<#list row.proportions as proportion>
 							<w:tc>
 								<w:tcPr>
 									<w:tcW w:w="992" w:type="dxa"/>
@@ -688,7 +689,7 @@
 											<w:szCs w:val="24"/>
 											<w:lang w:eastAsia="zh-CN"/>
 										</w:rPr>
-										<w:t>${opt}</w:t>
+										<w:t>${proportion}</w:t>
 									</w:r>
 								</w:p>
 							</w:tc>
@@ -765,8 +766,29 @@
 								<w:szCs w:val="24"/>
 								<w:lang w:eastAsia="zh-CN"/>
 							</w:rPr>
-							<w:t>${end}</w:t>
+							<w:t>${question.end}</w:t>
 						</w:r>
+					</w:p>
+						<w:p w14:paraId="1B122D3D" w14:textId="77777777" w:rsidR="003F2B17" w:rsidRDefault="003F2B17" w:rsidP="0018250F">
+						<w:pPr>
+							<w:tabs>
+								<w:tab w:val="left" w:pos="1200"/>
+								<w:tab w:val="left" w:pos="2268"/>
+								<w:tab w:val="left" w:pos="2410"/>
+								<w:tab w:val="left" w:pos="2552"/>
+								<w:tab w:val="left" w:pos="2694"/>
+								<w:tab w:val="left" w:pos="2835"/>
+								<w:tab w:val="left" w:pos="2977"/>
+								<w:tab w:val="left" w:pos="3261"/>
+							</w:tabs>
+							<w:spacing w:after="0"/>
+							<w:rPr>
+								<w:rFonts w:eastAsia="宋体"/>
+								<w:color w:val="000000"/>
+								<w:szCs w:val="24"/>
+								<w:lang w:eastAsia="zh-CN"/>
+							</w:rPr>
+						</w:pPr>
 					</w:p>
 					<w:sectPr w:rsidR="002A2F83">
 						<w:pgSz w:w="11906" w:h="16838"/>
@@ -774,6 +796,7 @@
 						<w:cols w:space="425"/>
 						<w:docGrid w:type="lines" w:linePitch="312"/>
 					</w:sectPr>
+					</#list>
 				</w:body>
 			</w:document>
 		</pkg:xmlData>

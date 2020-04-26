@@ -127,6 +127,7 @@ public class QuestionServiceImpl implements QuestionService {
 		@Override
 		public List<question> findQuestions(String Qid) {
 			questionExample example=new questionExample();
+			example.setOrderByClause("`site` ASC");
 			Criteria criteria = example.createCriteria();
 			criteria.andNaireidEqualTo(Qid);
 			

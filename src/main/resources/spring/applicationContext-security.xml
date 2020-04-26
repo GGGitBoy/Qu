@@ -25,9 +25,9 @@
 	<!-- 认证管理器 -->
 	<authentication-manager>
 		<authentication-provider user-service-ref="LoginSecurity">
-			<!-- <password-encoder ref="PasswordEncoder"></password-encoder>
+			<password-encoder ref="PasswordEncoder"></password-encoder> 
 		
-			<user-service>
+			<!-- <user-service>
 				<user name="admin" password="123456" authorities="ROLE_USER"/>
 			</user-service>		
 		 -->	

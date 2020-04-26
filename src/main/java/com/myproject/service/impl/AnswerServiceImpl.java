@@ -2,6 +2,7 @@ package com.myproject.service.impl;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -155,13 +156,28 @@ public class AnswerServiceImpl implements AnswerService {
 			return count;	
 		}
 
+	@Override
+	public Set<String> findByUserId(String userId) {
+		answerExample answerExample = new answerExample();
+		Criteria answercriteria = answerExample.createCriteria();
+		answercriteria.andUseridEqualTo(userId);
+		List<answer> answerList = answerMapper.selectByExample(answerExample);
+		Set<String> quesNumSet = new HashSet<>();
+		for (answer answer : answerList) {
+			quesNumSet.add(answer.getQuestionnairenumber());
+		}
+		System.out.println("quesNumSet = " + quesNumSet);
+		return quesNumSet;
+	}
+
+
 		@Override
 		public List<answer> findOption(String optionsid) {
 			answerExample answerExample = new answerExample();
 			Criteria answercriteria = answerExample.createCriteria();
 			answercriteria.andOptionsidEqualTo(optionsid);
-			List<answer> answers = answerMapper.selectByExample(answerExample);	
-			return answers;	
+			List<answer> answers = answerMapper.selectByExample(answerExample);
+			return answers;
 		}
-	
+
 }

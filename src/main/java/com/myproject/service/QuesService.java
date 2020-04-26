@@ -18,8 +18,6 @@ public interface QuesService {
 	public List<ques> findQuess(String questionid);
 
 	public void update(ques ques);
-	
 
 
-	
 }
