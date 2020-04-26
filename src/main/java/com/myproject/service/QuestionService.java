@@ -64,5 +64,4 @@ public interface QuestionService {
 	public List<question> findQuestions(String qid);
 
 
-	
 }

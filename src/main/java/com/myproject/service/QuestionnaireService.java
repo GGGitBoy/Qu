@@ -66,5 +66,6 @@ public interface QuestionnaireService {
 
 	List<questionnaire> findAllNum(String filtersStatus);
 
-	
+
+	questionnaire findByQuestionnaireNumber(String s);
 }

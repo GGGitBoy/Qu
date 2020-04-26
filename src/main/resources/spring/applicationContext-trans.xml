@@ -41,7 +41,7 @@
  
     <aop:config>
         <aop:aspect ref="generateTime">
-        <aop:before method="aopAdd" pointcut="execution(public void com.myproject.service.impl.*ServiceImpl.add(*))"/>
+        <aop:before method="aopAdd" pointcut="execution(public void com.myproject.service.impl.*ServiceImpl.add*(*))"/>
         <aop:before method="aopUpdate" pointcut="execution(public void com.myproject.service.impl.*ServiceImpl.update(*))"/>
         </aop:aspect>
     </aop:config>

@@ -204,4 +204,30 @@ public class user extends BaseEntity{
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
+
+    @Override
+    public String toString() {
+        return "user{" +
+                "userid='" + userid + '\'' +
+                ", icon='" + icon + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", major='" + major + '\'' +
+                ", studentnumber='" + studentnumber + '\'' +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", graduationyear='" + graduationyear + '\'' +
+                ", correspondenceaddress='" + correspondenceaddress + '\'' +
+                ", wechat='" + wechat + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", qqnumber='" + qqnumber + '\'' +
+                ", graduationplane='" + graduationplane + '\'' +
+                ", graduationplanesituation='" + graduationplanesituation + '\'' +
+                ", canlogin=" + canlogin +
+                ", usertypenum='" + usertypenum + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

@@ -22,12 +22,12 @@ public class questionnaire extends BaseEntity{
 
     private String digest;
 
-    private Date cutofftime;
+    private Date starttime;
+
+    private Date endtime;
 
     private String status;
     
-    private List<question> questions;
-
     public List<question> getQuestions() {
 		return questions;
 	}
@@ -36,7 +36,9 @@ public class questionnaire extends BaseEntity{
 		this.questions = questions;
 	}
 
-	public String getQuestionnaireid() {
+	private List<question> questions;
+
+    public String getQuestionnaireid() {
         return questionnaireid;
     }
 
@@ -100,12 +102,20 @@ public class questionnaire extends BaseEntity{
         this.digest = digest == null ? null : digest.trim();
     }
 
-    public Date getCutofftime() {
-        return cutofftime;
+    public Date getStarttime() {
+        return starttime;
     }
 
-    public void setCutofftime(Date cutofftime) {
-        this.cutofftime = cutofftime;
+    public void setStarttime(Date starttime) {
+        this.starttime = starttime;
+    }
+
+    public Date getEndtime() {
+        return endtime;
+    }
+
+    public void setEndtime(Date endtime) {
+        this.endtime = endtime;
     }
 
     public String getStatus() {
@@ -115,4 +125,5 @@ public class questionnaire extends BaseEntity{
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
     }
+
 }

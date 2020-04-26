@@ -1,5 +1,6 @@
 package com.myproject.service;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.security.core.userdetails.User;
 
@@ -70,7 +71,9 @@ public interface AnswerService {
 
 	public Long CountOptionID(String optionsid);
 
+	public Set<String> findByUserId(String userId);
+
 
 	public List<answer> findOption(String optionsid);
-	
+
 }

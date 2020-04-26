@@ -10,7 +10,8 @@
     <result column="author" jdbcType="VARCHAR" property="author" />
     <result column="click" jdbcType="INTEGER" property="click" />
     <result column="digest" jdbcType="VARCHAR" property="digest" />
-    <result column="cutofftime" jdbcType="TIMESTAMP" property="cutofftime" />
+    <result column="starttime" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="endtime" jdbcType="TIMESTAMP" property="endtime" />
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="saveTime" jdbcType="TIMESTAMP" property="savetime" />
     <result column="changeTime" jdbcType="TIMESTAMP" property="changetime" />
@@ -75,7 +76,7 @@
   </sql>
   <sql id="Base_Column_List">
     questionnaireID, questionnaireNumber, title, secondTitle, image, author, click, digest, 
-    cutofftime, status, saveTime, changeTime
+    starttime, endtime, status, saveTime, changeTime
   </sql>
   <select id="selectByExample" parameterType="com.myproject.pojo.questionnaireExample" resultMap="BaseResultMap">
     select
@@ -111,13 +112,13 @@
     insert into questionnaire (questionnaireID, questionnaireNumber, 
       title, secondTitle, image, 
       author, click, digest, 
-      cutofftime, status, saveTime, 
-      changeTime)
+      starttime, endtime, status, 
+      saveTime, changeTime)
     values (#{questionnaireid,jdbcType=VARCHAR}, #{questionnairenumber,jdbcType=VARCHAR}, 
       #{title,jdbcType=VARCHAR}, #{secondtitle,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
       #{author,jdbcType=VARCHAR}, #{click,jdbcType=INTEGER}, #{digest,jdbcType=VARCHAR}, 
-      #{cutofftime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{savetime,jdbcType=TIMESTAMP}, 
-      #{changetime,jdbcType=TIMESTAMP})
+      #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{savetime,jdbcType=TIMESTAMP}, #{changetime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.myproject.pojo.questionnaire">
     insert into questionnaire
@@ -146,8 +147,11 @@
       <if test="digest != null">
         digest,
       </if>
-      <if test="cutofftime != null">
-        cutofftime,
+      <if test="starttime != null">
+        starttime,
+      </if>
+      <if test="endtime != null">
+        endtime,
       </if>
       <if test="status != null">
         status,
@@ -184,8 +188,11 @@
       <if test="digest != null">
         #{digest,jdbcType=VARCHAR},
       </if>
-      <if test="cutofftime != null">
-        #{cutofftime,jdbcType=TIMESTAMP},
+      <if test="starttime != null">
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
@@ -231,8 +238,11 @@
       <if test="record.digest != null">
         digest = #{record.digest,jdbcType=VARCHAR},
       </if>
-      <if test="record.cutofftime != null">
-        cutofftime = #{record.cutofftime,jdbcType=TIMESTAMP},
+      <if test="record.starttime != null">
+        starttime = #{record.starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endtime != null">
+        endtime = #{record.endtime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=VARCHAR},
@@ -258,7 +268,8 @@
       author = #{record.author,jdbcType=VARCHAR},
       click = #{record.click,jdbcType=INTEGER},
       digest = #{record.digest,jdbcType=VARCHAR},
-      cutofftime = #{record.cutofftime,jdbcType=TIMESTAMP},
+      starttime = #{record.starttime,jdbcType=TIMESTAMP},
+      endtime = #{record.endtime,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=VARCHAR},
       saveTime = #{record.savetime,jdbcType=TIMESTAMP},
       changeTime = #{record.changetime,jdbcType=TIMESTAMP}
@@ -290,8 +301,11 @@
       <if test="digest != null">
         digest = #{digest,jdbcType=VARCHAR},
       </if>
-      <if test="cutofftime != null">
-        cutofftime = #{cutofftime,jdbcType=TIMESTAMP},
+      <if test="starttime != null">
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        endtime = #{endtime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
@@ -314,7 +328,8 @@
       author = #{author,jdbcType=VARCHAR},
       click = #{click,jdbcType=INTEGER},
       digest = #{digest,jdbcType=VARCHAR},
-      cutofftime = #{cutofftime,jdbcType=TIMESTAMP},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=VARCHAR},
       saveTime = #{savetime,jdbcType=TIMESTAMP},
       changeTime = #{changetime,jdbcType=TIMESTAMP}

@@ -2,7 +2,10 @@ package com.myproject.service;
 import java.util.List;
 
 import com.myproject.entiy.PageResult;
+import com.myproject.entiy.Result;
 import com.myproject.pojo.user;
+import org.springframework.security.core.userdetails.User;
+
 /**
  * 服务层接口
  * @author Administrator
@@ -58,7 +61,8 @@ public interface UserService {
 	 */
 	public PageResult findPage(user user, int pageNum,int pageSize);
 
+    user findByUserName(String username);
 
-	public void addExcel(String lng, String lat);
-	
+	public void addExcel(user user);
+
 }
