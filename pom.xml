@@ -90,7 +90,7 @@
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.41</version>
+		    <version>8.0.28</version>
 		</dependency>
 		<!-- 不提供servlet，jsp页面会报错 -->
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
